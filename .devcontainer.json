@@ -1,0 +1,34 @@
+{
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "runArgs": [
+    "--name=oh-my-study",
+    "--network=network1",
+    "--dns=114.114.114.114"
+  ],
+  "mounts": [
+		"source=config,target=/root/.config,type=volume",
+    "source=vscode-extensions,target=/root/.vscode-server/extensions,type=volume",
+		"source=ssh,target=/root/.ssh,type=volume",
+		"source=go-bin,target=/root/go/bin,type=volume",
+		"source=pnpm-bin,target=/root/.local/share/pnpm,type=volume",
+		"source=gems,target=/usr/local/rvm/gems,type=volume",
+		"source=repos,target=/root/repos,type=volume"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "golang.go",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "rebornix.ruby",
+        "castwide.solargraph",
+        "kaiwood.endwise",
+        "sianglim.slim",
+        "jnbt.vscode-rufo"
+      ]
+    }
+  }
+  // "forwardPorts": []
+}
